@@ -9,7 +9,7 @@ export default function Footer() {
             <Icon name="Container" size={28} />
             <span className="text-xl font-bold">ИВДоставка</span>
           </div>
-          <p className="text-white/80">© 2024 ИВТЛК ЛогиЛюкс. Все права защищены.</p>
+          <p className="text-white/80">© 2024 ИВДоставка. Все права защищены.</p>
           <div className="flex gap-4">
             <a href="#" className="text-white/80 hover:text-white transition-colors">Политика конфиденциальности</a>
           </div>
