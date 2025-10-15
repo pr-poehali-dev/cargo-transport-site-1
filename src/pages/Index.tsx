@@ -218,7 +218,15 @@ export default function Index() {
               </CardHeader>
             </Card>
 
-
+            <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
+                  <Icon name="Globe" size={32} className="text-white" />
+                </div>
+                <CardTitle>Международные перевозки</CardTitle>
+                <CardDescription>Доставка в Беларусь и Казахстан с таможенным оформлением</CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
