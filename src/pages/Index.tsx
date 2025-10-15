@@ -90,11 +90,7 @@ export default function Index() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 pt-8">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent">15+</div>
-                  <div className="text-sm text-white/80">лет на рынке</div>
-                </div>
+              <div className="grid grid-cols-2 gap-6 pt-8">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-accent">500+</div>
                   <div className="text-sm text-white/80">клиентов</div>
