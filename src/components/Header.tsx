@@ -7,7 +7,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-white">
-            <Icon name="TruckIcon" fallback="Container" size={32} className="font-bold" />
+            <Icon name="Container" size={32} className="font-bold" />
             <span className="text-2xl font-bold">ИВТЛК ЛогиЛюкс</span>
           </div>
           
