@@ -551,8 +551,7 @@ export default function Index() {
                 </div>
                 <CardTitle>Адрес</CardTitle>
                 <CardDescription className="text-lg">
-                  г. Москва<br />
-                  ул. Грузовая, д. 15
+                  г. Иваново
                 </CardDescription>
               </CardHeader>
             </Card>
