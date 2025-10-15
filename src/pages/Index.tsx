@@ -539,8 +539,7 @@ export default function Index() {
                 </div>
                 <CardTitle>Email</CardTitle>
                 <CardDescription className="text-lg">
-                  info@cargo-company.ru<br />
-                  order@cargo-company.ru
+                  koroleva26.07@mail.ru
                 </CardDescription>
               </CardHeader>
             </Card>
