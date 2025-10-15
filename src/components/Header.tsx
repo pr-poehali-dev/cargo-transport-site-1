@@ -8,7 +8,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-white">
             <Icon name="Container" size={32} className="font-bold" />
-            <span className="text-2xl font-bold">ИВТЛК ЛогиЛюкс</span>
+            <span className="text-2xl font-bold">ИВДоставка</span>
           </div>
           
           <div className="hidden md:flex items-center gap-6">
