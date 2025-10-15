@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Icon name="Container" size={28} />
-            <span className="text-xl font-bold">ИВТЛК ЛогиЛюкс</span>
+            <span className="text-xl font-bold">ИВДоставка</span>
           </div>
           <p className="text-white/80">© 2024 ИВТЛК ЛогиЛюкс. Все права защищены.</p>
           <div className="flex gap-4">
