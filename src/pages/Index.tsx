@@ -227,6 +227,16 @@ export default function Index() {
                 <CardDescription>Доставка в Беларусь и Казахстан с таможенным оформлением</CardDescription>
               </CardHeader>
             </Card>
+
+            <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4">
+                  <Icon name="ShoppingCart" size={32} className="text-white" />
+                </div>
+                <CardTitle>Доставка на маркетплейсы</CardTitle>
+                <CardDescription>Перевозка товаров на склады Wildberries, Ozon, Яндекс.Маркет</CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
