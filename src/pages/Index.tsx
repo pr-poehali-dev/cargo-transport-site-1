@@ -218,15 +218,7 @@ export default function Index() {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Users" size={32} className="text-white" />
-                </div>
-                <CardTitle>Грузчики</CardTitle>
-                <CardDescription>Профессиональная погрузка и разгрузка любой сложности</CardDescription>
-              </CardHeader>
-            </Card>
+
           </div>
         </div>
       </section>
