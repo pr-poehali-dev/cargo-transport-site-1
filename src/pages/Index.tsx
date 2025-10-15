@@ -566,10 +566,6 @@ export default function Index() {
                 <Icon name="MessageCircle" size={20} className="mr-2" />
                 Написать в WhatsApp
               </Button>
-              <Button variant="outline" size="lg">
-                <Icon name="Send" size={20} className="mr-2" />
-                Telegram
-              </Button>
             </div>
           </div>
         </div>
