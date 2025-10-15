@@ -50,7 +50,7 @@ export default function Index() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-white">
               <Icon name="Truck" size={32} className="font-bold" />
-              <span className="text-2xl font-bold">КАРГО</span>
+              <span className="text-2xl font-bold">ИВТЛК ЛогиЛюкс</span>
             </div>
             
             <div className="hidden md:flex items-center gap-6">
@@ -575,9 +575,9 @@ export default function Index() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <Icon name="Truck" size={28} />
-              <span className="text-xl font-bold">КАРГО</span>
+              <span className="text-xl font-bold">ИВТЛК ЛогиЛюкс</span>
             </div>
-            <p className="text-white/80">© 2024 КАРГО. Все права защищены.</p>
+            <p className="text-white/80">© 2024 ИВТЛК ЛогиЛюкс. Все права защищены.</p>
             <div className="flex gap-4">
               <a href="#" className="text-white/80 hover:text-white transition-colors">Политика конфиденциальности</a>
             </div>
