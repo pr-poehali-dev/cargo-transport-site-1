@@ -64,7 +64,7 @@ export default function Index() {
 
             <Button variant="secondary" className="font-semibold">
               <Icon name="Phone" size={18} className="mr-2" />
-              +7 (495) 123-45-67
+              +7 (901) 037-09-63
             </Button>
           </div>
         </nav>
@@ -521,8 +521,7 @@ export default function Index() {
                 </div>
                 <CardTitle>Телефон</CardTitle>
                 <CardDescription className="text-lg">
-                  +7 (495) 123-45-67<br />
-                  +7 (800) 555-35-35
+                  +7 (901) 037-09-63
                 </CardDescription>
               </CardHeader>
             </Card>
