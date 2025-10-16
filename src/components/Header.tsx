@@ -39,20 +39,21 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <a href="tel:+79010370963" className="hidden md:block">
+            <a href="tel:+79010370963" className="hidden sm:block">
               <Button variant="secondary" className="font-semibold">
                 <Icon name="Phone" size={18} className="mr-2" />
-                <span className="hidden xl:inline">+7 (901) 037-09-63</span>
-                <span className="xl:hidden">Позвонить</span>
+                <span className="hidden lg:inline">+7 (901) 037-09-63</span>
+                <span className="lg:hidden">Позвонить</span>
               </Button>
             </a>
             
-            <Button onClick={() => setIsCallbackOpen(true)} variant="outline" className="font-semibold hidden lg:flex border-white text-white hover:bg-white/10">
+            <Button onClick={() => setIsCallbackOpen(true)} variant="outline" className="font-semibold hidden sm:flex border-white text-white hover:bg-white/10">
               <Icon name="PhoneCall" size={18} className="mr-2" />
-              Заказать звонок
+              <span className="hidden md:inline">Заказать звонок</span>
+              <span className="md:hidden">Заявка</span>
             </Button>
 
-            <a href="tel:+79010370963" className="md:hidden">
+            <a href="tel:+79010370963" className="sm:hidden">
               <Button variant="secondary" size="icon">
                 <Icon name="Phone" size={20} />
               </Button>
@@ -60,7 +61,7 @@ export default function Header() {
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button variant="secondary" size="icon" className="md:hidden">
+                <Button variant="secondary" size="icon" className="sm:hidden">
                   <Icon name="Menu" size={24} />
                 </Button>
               </SheetTrigger>
