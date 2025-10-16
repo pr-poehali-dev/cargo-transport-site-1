@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '79123456789';
+  const phoneNumber = '79010370963';
   const message = 'Здравствуйте! Интересует грузоперевозка.';
   
   const handleClick = () => {
