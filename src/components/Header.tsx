@@ -53,6 +53,12 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
+            <a href="tel:+79010370963" className="sm:hidden">
+              <Button size="icon" className="bg-green-600 hover:bg-green-700 text-white">
+                <Icon name="Phone" size={24} />
+              </Button>
+            </a>
+
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="sm:hidden">
                 <Button variant="outline" size="icon" className="border-white text-white hover:bg-white/10">
