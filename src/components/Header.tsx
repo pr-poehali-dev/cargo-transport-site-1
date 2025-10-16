@@ -38,7 +38,7 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <a href="tel:+79010370963" className="hidden sm:block">
               <Button variant="secondary" className="font-semibold">
                 <Icon name="Phone" size={18} className="mr-2" />
@@ -53,45 +53,43 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
-            <div className="flex items-center gap-2 sm:hidden">
-              <a href="tel:+79010370963">
-                <Button variant="secondary" size="icon" className="shadow-lg bg-green-500 hover:bg-green-600">
-                  <Icon name="Phone" size={22} className="text-white" />
-                </Button>
-              </a>
+            <a href="tel:+79010370963" className="block sm:hidden">
+              <Button size="icon" className="bg-green-500 hover:bg-green-600 text-white shadow-lg">
+                <Icon name="Phone" size={24} />
+              </Button>
+            </a>
 
-              <Sheet open={open} onOpenChange={setOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="border-white text-white hover:bg-white/10">
-                    <Icon name="Menu" size={24} />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] bg-primary">
-                <div className="flex flex-col gap-6 mt-8">
-                  {menuItems.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleMenuClick}
-                      className="text-white hover:text-accent transition-colors font-semibold text-lg"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                  <a href="tel:+79010370963" className="w-full">
-                    <Button variant="secondary" className="w-full justify-start text-lg">
-                      <Icon name="Phone" size={20} className="mr-2" />
-                      Позвонить
-                    </Button>
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild className="sm:hidden">
+                <Button variant="outline" size="icon" className="border-white text-white hover:bg-white/10">
+                  <Icon name="Menu" size={24} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-primary">
+              <div className="flex flex-col gap-6 mt-8">
+                {menuItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleMenuClick}
+                    className="text-white hover:text-accent transition-colors font-semibold text-lg"
+                  >
+                    {item.label}
                   </a>
-                  <Button onClick={() => { setIsCallbackOpen(true); setOpen(false); }} variant="outline" className="w-full justify-start text-lg border-white text-white hover:bg-white/10">
-                    <Icon name="PhoneCall" size={20} className="mr-2" />
-                    Заказать звонок
+                ))}
+                <a href="tel:+79010370963" className="w-full">
+                  <Button variant="secondary" className="w-full justify-start text-lg">
+                    <Icon name="Phone" size={20} className="mr-2" />
+                    Позвонить
                   </Button>
-                </div>
-              </SheetContent>
-              </Sheet>
-            </div>
+                </a>
+                <Button onClick={() => { setIsCallbackOpen(true); setOpen(false); }} variant="outline" className="w-full justify-start text-lg border-white text-white hover:bg-white/10">
+                  <Icon name="PhoneCall" size={20} className="mr-2" />
+                  Заказать звонок
+                </Button>
+              </div>
+            </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
