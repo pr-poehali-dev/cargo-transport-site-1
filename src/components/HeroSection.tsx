@@ -21,11 +21,11 @@ export default function HeroSection() {
               Профессиональные грузоперевозки по всей России. Гарантируем сохранность груза и соблюдение сроков.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" variant="secondary" className="font-semibold text-lg">
+              <Button onClick={() => setIsDialogOpen(true)} size="lg" variant="secondary" className="font-semibold text-lg">
                 <Icon name="Calculator" size={20} className="mr-2" />
                 Рассчитать стоимость
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg">
+              <Button onClick={() => setIsDialogOpen(true)} size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg">
                 Оставить заявку
               </Button>
             </div>
