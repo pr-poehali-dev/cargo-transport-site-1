@@ -1,3 +1,5 @@
+import Icon from '@/components/ui/icon';
+
 export default function WhatsAppButton() {
   const phoneNumber = '79010370963';
   const message = 'Здравствуйте! Интересует грузоперевозка.';
@@ -11,16 +13,18 @@ export default function WhatsAppButton() {
     <div className="md:hidden">
       <a 
         href="tel:+79010370963"
-        className="fixed bottom-24 right-6 z-[60] h-14 w-14 rounded-full shadow-2xl bg-blue-600 hover:bg-blue-700 border-4 border-white flex items-center justify-center transition-all"
+        className="fixed bottom-24 right-6 z-[60] h-16 w-16 rounded-full shadow-2xl bg-gradient-to-br from-blue-500 to-blue-700 hover:scale-110 flex items-center justify-center transition-all duration-300 hover:shadow-blue-500/50 animate-pulse"
+        aria-label="Позвонить"
       >
-        <span style={{fontSize: '24px'}}>📞</span>
+        <Icon name="Phone" size={28} className="text-white" />
       </a>
       
       <button
         onClick={handleWhatsApp}
-        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl bg-[#25D366] hover:bg-[#20BA5A] z-50 flex items-center justify-center transition-all"
+        className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-2xl bg-gradient-to-br from-[#25D366] to-[#128C7E] hover:scale-110 z-50 flex items-center justify-center transition-all duration-300 hover:shadow-green-500/50 animate-pulse"
+        aria-label="WhatsApp"
       >
-        <span style={{fontSize: '24px'}}>💬</span>
+        <Icon name="MessageCircle" size={28} className="text-white" />
       </button>
     </div>
   );
