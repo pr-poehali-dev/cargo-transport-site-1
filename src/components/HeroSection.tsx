@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import QuoteRequestDialog from '@/components/QuoteRequestDialog';
 
 export default function HeroSection() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <section id="home" className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 text-white py-20">
@@ -67,7 +70,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <Button className="w-full font-semibold" size="lg">
+              <Button onClick={() => setIsDialogOpen(true)} className="w-full font-semibold" size="lg">
                 <Icon name="Calculator" size={18} className="mr-2" />
                 Запросить расчёт
               </Button>
@@ -75,6 +78,8 @@ export default function HeroSection() {
           </Card>
         </div>
       </div>
+
+      <QuoteRequestDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
     </section>
   );
 }
