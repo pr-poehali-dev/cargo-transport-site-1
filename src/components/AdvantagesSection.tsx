@@ -52,7 +52,7 @@ export default function AdvantagesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {advantages.map((advantage, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <Card key={index} className={`hover:shadow-lg transition-shadow animate-fade-in-up animation-delay-${index * 100}`}>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -65,7 +65,7 @@ export default function AdvantagesSection() {
             </Card>
           ))}
           
-          <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+          <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 animate-fade-in-up animation-delay-600">
             <CardHeader>
               <CardTitle className="text-xl text-center">Индивидуальный расчёт</CardTitle>
               <CardDescription className="text-center">Получите точную стоимость доставки</CardDescription>
