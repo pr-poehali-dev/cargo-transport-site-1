@@ -27,7 +27,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-white">
             <Icon name="Container" size={32} className="font-bold" />
-            <span className="text-xl md:text-2xl font-bold">ИВДоставка</span>
+            <span className="text-xl md:text-2xl font-bold">КАРГОФЬЮЖЕН 37</span>
           </div>
           
           <div className="hidden lg:flex items-center gap-6">
