@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Icon name="Container" size={28} />
-            <span className="text-xl font-bold">ИВДоставка</span>
+            <span className="text-xl font-bold">КаргоФьюжен 37</span>
           </div>
-          <p className="text-white/80">© 2024 ИВДоставка. Все права защищены.</p>
+          <p className="text-white/80">© 2024 КаргоФьюжен 37. Все права защищены.</p>
           <div className="flex gap-4">
             <a href="#" className="text-white/80 hover:text-white transition-colors">Политика конфиденциальности</a>
           </div>
