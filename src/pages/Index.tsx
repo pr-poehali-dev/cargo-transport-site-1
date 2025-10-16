@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AdvantagesSection from '@/components/AdvantagesSection';
+import StatsSection from '@/components/StatsSection';
 import ServicesSection from '@/components/ServicesSection';
 import FleetSection from '@/components/FleetSection';
 import PricingSection from '@/components/PricingSection';
@@ -15,6 +16,7 @@ export default function Index() {
       <Header />
       <HeroSection />
       <AdvantagesSection />
+      <StatsSection />
       <ServicesSection />
       <FleetSection />
       <PricingSection />
