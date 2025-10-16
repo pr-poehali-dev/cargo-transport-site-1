@@ -46,6 +46,11 @@ export default function Header() {
                 <span className="xl:hidden">Позвонить</span>
               </a>
             </Button>
+            
+            <Button onClick={() => setIsCallbackOpen(true)} variant="outline" className="font-semibold hidden md:flex border-white text-white hover:bg-white/10">
+              <Icon name="PhoneCall" size={18} className="mr-2" />
+              Заказать звонок
+            </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
