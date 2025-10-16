@@ -125,11 +125,17 @@
   }
 
   .animate-fade-in-up {
+    opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
   }
 
   .animate-fade-in {
+    opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animation-delay-0 {
+    animation-delay: 0s;
   }
 
   .animation-delay-100 {
