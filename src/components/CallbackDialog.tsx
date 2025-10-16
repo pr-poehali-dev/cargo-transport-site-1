@@ -34,7 +34,7 @@ export default function CallbackDialog({ open, onOpenChange }: CallbackDialogPro
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://functions.poehali.dev/7473148f-2f8a-4926-bb87-90392695731b', {
+      const response = await fetch('https://functions.poehali.dev/b221b670-3e3b-443e-a95e-d73ab2dc0ef8', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

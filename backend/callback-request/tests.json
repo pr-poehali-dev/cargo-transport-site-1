@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Valid callback request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "phone": "+7 999 123 45 67",
+        "type": "callback"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Missing phone number",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
