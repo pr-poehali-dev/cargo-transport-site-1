@@ -3,14 +3,14 @@ import Icon from '@/components/ui/icon';
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 bg-muted/30">
+    <section id="services" className="py-12 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Наши услуги</h2>
-          <p className="text-xl text-muted-foreground">Полный спектр грузоперевозок для вашего бизнеса</p>
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Наши услуги</h2>
+          <p className="text-base md:text-xl text-muted-foreground">Полный спектр грузоперевозок для вашего бизнеса</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary animate-fade-in-up animation-delay-0">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">

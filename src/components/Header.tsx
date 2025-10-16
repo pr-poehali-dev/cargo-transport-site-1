@@ -1,29 +1,74 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  const menuItems = [
+    { href: '#home', label: 'Главная' },
+    { href: '#services', label: 'Услуги' },
+    { href: '#fleet', label: 'Автопарк' },
+    { href: '#pricing', label: 'Тарифы' },
+    { href: '#reviews', label: 'Отзывы' },
+    { href: '#contacts', label: 'Контакты' }
+  ];
+
+  const handleMenuClick = () => {
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-primary via-primary/90 to-accent shadow-lg">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-white">
             <Icon name="Container" size={32} className="font-bold" />
-            <span className="text-2xl font-bold">ИВДоставка</span>
+            <span className="text-xl md:text-2xl font-bold">ИВДоставка</span>
           </div>
           
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#home" className="text-white hover:text-accent transition-colors font-semibold">Главная</a>
-            <a href="#services" className="text-white hover:text-accent transition-colors font-semibold">Услуги</a>
-            <a href="#fleet" className="text-white hover:text-accent transition-colors font-semibold">Автопарк</a>
-            <a href="#pricing" className="text-white hover:text-accent transition-colors font-semibold">Тарифы</a>
-            <a href="#reviews" className="text-white hover:text-accent transition-colors font-semibold">Отзывы</a>
-            <a href="#contacts" className="text-white hover:text-accent transition-colors font-semibold">Контакты</a>
+          <div className="hidden lg:flex items-center gap-6">
+            {menuItems.map((item) => (
+              <a key={item.href} href={item.href} className="text-white hover:text-accent transition-colors font-semibold">
+                {item.label}
+              </a>
+            ))}
           </div>
 
-          <Button variant="secondary" className="font-semibold">
-            <Icon name="Phone" size={18} className="mr-2" />
-            +7 (901) 037-09-63
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="secondary" className="font-semibold hidden md:flex">
+              <Icon name="Phone" size={18} className="mr-2" />
+              <span className="hidden xl:inline">+7 (901) 037-09-63</span>
+              <span className="xl:hidden">Позвонить</span>
+            </Button>
+
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Button variant="secondary" size="icon" className="lg:hidden">
+                  <Icon name="Menu" size={24} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-primary">
+                <div className="flex flex-col gap-6 mt-8">
+                  {menuItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={handleMenuClick}
+                      className="text-white hover:text-accent transition-colors font-semibold text-lg"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  <a href="tel:+79010370963" className="text-white hover:text-accent transition-colors font-semibold text-lg">
+                    <Icon name="Phone" size={20} className="inline mr-2" />
+                    +7 (901) 037-09-63
+                  </a>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </header>

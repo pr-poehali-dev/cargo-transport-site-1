@@ -41,16 +41,16 @@ export default function AdvantagesSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <section id="advantages" className="py-20 bg-gray-50">
+    <section id="advantages" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Почему выбирают нас</h2>
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
             Мы предоставляем полный комплекс услуг по грузоперевозкам с гарантией качества
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {advantages.map((advantage, index) => (
             <Card key={index} className={`hover:shadow-lg transition-shadow animate-fade-in-up animation-delay-${index * 100}`}>
               <CardContent className="pt-6">
