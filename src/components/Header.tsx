@@ -65,8 +65,14 @@ export default function Header() {
                       {item.label}
                     </a>
                   ))}
-                  <Button onClick={() => { setIsCallbackOpen(true); setOpen(false); }} variant="secondary" className="w-full justify-start text-lg">
-                    <Icon name="Phone" size={20} className="mr-2" />
+                  <a href="tel:+79010370963" className="w-full">
+                    <Button variant="secondary" className="w-full justify-start text-lg">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </Button>
+                  </a>
+                  <Button onClick={() => { setIsCallbackOpen(true); setOpen(false); }} variant="outline" className="w-full justify-start text-lg border-white text-white hover:bg-white/10">
+                    <Icon name="PhoneCall" size={20} className="mr-2" />
                     Заказать звонок
                   </Button>
                 </div>
