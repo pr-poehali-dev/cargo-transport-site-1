@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
+import { validatePhone, validateHoneypot, createTimestamp, validateSubmissionTime } from '@/utils/formValidation';
 
 interface CallbackDialogProps {
   open: boolean;
@@ -13,19 +14,49 @@ interface CallbackDialogProps {
 
 export default function CallbackDialog({ open, onOpenChange }: CallbackDialogProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
+  const [formTimestamp, setFormTimestamp] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     phone: ''
   });
   const { toast } = useToast();
 
+  useEffect(() => {
+    if (open) {
+      setFormTimestamp(createTimestamp());
+    }
+  }, [open]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateHoneypot(honeypot)) {
+      return;
+    }
+
+    if (!validateSubmissionTime(formTimestamp)) {
+      toast({
+        title: "Ошибка",
+        description: "Слишком быстрая отправка формы",
+        variant: "destructive"
+      });
+      return;
+    }
 
     if (!formData.name || !formData.phone) {
       toast({
         title: "Ошибка",
         description: "Заполните все поля",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validatePhone(formData.phone)) {
+      toast({
+        title: "Ошибка",
+        description: "Введите корректный номер телефона",
         variant: "destructive"
       });
       return;
@@ -102,6 +133,16 @@ export default function CallbackDialog({ open, onOpenChange }: CallbackDialogPro
               required
             />
           </div>
+
+          <input
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
 
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (

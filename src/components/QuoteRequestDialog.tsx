@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import { validateEmail, validatePhone, isSpamSubmission, validateHoneypot, createTimestamp, validateSubmissionTime } from '@/utils/formValidation';
 
 interface QuoteRequestDialogProps {
   open: boolean;
@@ -22,6 +23,8 @@ interface QuoteRequestDialogProps {
 export default function QuoteRequestDialog({ open, onOpenChange }: QuoteRequestDialogProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
+  const [formTimestamp, setFormTimestamp] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -34,13 +37,59 @@ export default function QuoteRequestDialog({ open, onOpenChange }: QuoteRequestD
     comment: ''
   });
 
+  useEffect(() => {
+    if (open) {
+      setFormTimestamp(createTimestamp());
+    }
+  }, [open]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!validateHoneypot(honeypot)) {
+      return;
+    }
+
+    if (!validateSubmissionTime(formTimestamp)) {
+      toast({
+        title: "Ошибка",
+        description: "Слишком быстрая отправка формы",
+        variant: "destructive"
+      });
+      return;
+    }
+
     if (!formData.name || !formData.phone || !formData.email) {
       toast({
         title: "Ошибка",
         description: "Заполните обязательные поля: имя, телефон, email",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      toast({
+        title: "Ошибка",
+        description: "Введите корректный email",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validatePhone(formData.phone)) {
+      toast({
+        title: "Ошибка",
+        description: "Введите корректный номер телефона",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (isSpamSubmission(formData)) {
+      toast({
+        title: "Ошибка",
+        description: "Обнаружена подозрительная активность",
         variant: "destructive"
       });
       return;
@@ -207,6 +256,16 @@ export default function QuoteRequestDialog({ open, onOpenChange }: QuoteRequestD
               onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
             />
           </div>
+
+          <input
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
 
           <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
             {isSubmitting ? (
