@@ -1,7 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useState } from 'react';
 
 export default function ReviewsSection() {
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    text: '',
+    rating: 5
+  });
   const reviews = [
     {
       name: 'Алексей Петров',
@@ -23,12 +35,82 @@ export default function ReviewsSection() {
     }
   ];
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Спасибо за отзыв! Мы свяжемся с вами для подтверждения.');
+    setOpen(false);
+    setFormData({ name: '', company: '', text: '', rating: 5 });
+  };
+
   return (
     <section id="reviews" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Отзывы клиентов</h2>
-          <p className="text-xl text-muted-foreground">Нам доверяют тысячи компаний</p>
+          <p className="text-xl text-muted-foreground mb-6">Нам доверяют тысячи компаний</p>
+          
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button size="lg" className="gap-2">
+                <Icon name="MessageSquare" size={20} />
+                Оставить отзыв
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[500px]">
+              <DialogHeader>
+                <DialogTitle>Оставить отзыв</DialogTitle>
+                <DialogDescription>
+                  Поделитесь своим мнением о нашей работе
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <Input
+                    placeholder="Ваше имя"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                  />
+                </div>
+                <div>
+                  <Input
+                    placeholder="Компания (необязательно)"
+                    value={formData.company}
+                    onChange={(e) => setFormData({...formData, company: e.target.value})}
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Оценка</label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setFormData({...formData, rating: star})}
+                        className="transition-all"
+                      >
+                        <Icon 
+                          name="Star" 
+                          size={32} 
+                          className={star <= formData.rating ? 'fill-accent text-accent' : 'text-gray-300'}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <Textarea
+                    placeholder="Ваш отзыв"
+                    value={formData.text}
+                    onChange={(e) => setFormData({...formData, text: e.target.value})}
+                    rows={4}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full">Отправить отзыв</Button>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
