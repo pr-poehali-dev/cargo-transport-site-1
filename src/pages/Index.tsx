@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import AdvantagesSection from '@/components/AdvantagesSection';
 import ServicesSection from '@/components/ServicesSection';
 import FleetSection from '@/components/FleetSection';
 import PricingSection from '@/components/PricingSection';
@@ -13,6 +14,7 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       <Header />
       <HeroSection />
+      <AdvantagesSection />
       <ServicesSection />
       <FleetSection />
       <PricingSection />
