@@ -4,6 +4,7 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
+import requests
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
@@ -39,18 +40,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     body_data = json.loads(event.get('body', '{}'))
     
-    smtp_host = os.environ.get('SMTP_HOST')
-    smtp_port = int(os.environ.get('SMTP_PORT', '465'))
-    smtp_user = os.environ.get('SMTP_USER')
-    smtp_password = os.environ.get('SMTP_PASSWORD')
-    recipient_email = os.environ.get('RECIPIENT_EMAIL')
+    print(f"Quote request received: {body_data}")
     
-    if not all([smtp_host, smtp_user, smtp_password, recipient_email]):
-        return {
-            'statusCode': 500,
-            'headers': {'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': 'Email configuration missing'})
-        }
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '7878655833:AAHke8YRZCr0m8iPijx9hITx4uUfYTmCSao')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '7757580483')
     
     cargo_types = {
         'general': 'Генеральные грузы',
@@ -60,6 +53,60 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     }
     
     cargo_type_text = cargo_types.get(body_data.get('cargoType', ''), body_data.get('cargoType', 'Не указан'))
+    
+    telegram_message = f"""📦 <b>Новая заявка на расчёт стоимости</b>
+
+👤 <b>Контакты:</b>
+• Имя: {body_data.get('name', 'Не указано')}
+• Телефон: {body_data.get('phone', 'Не указан')}
+• Email: {body_data.get('email', 'Не указан')}
+
+🚚 <b>Параметры:</b>
+• Откуда: {body_data.get('routeFrom', 'Не указано')}
+• Куда: {body_data.get('routeTo', 'Не указано')}
+• Вес: {body_data.get('weight', 'Не указан')} кг
+• Расстояние: {body_data.get('distance', 'Не указано')} км
+• Тип груза: {cargo_type_text}
+
+💬 <b>Комментарий:</b>
+{body_data.get('comment', 'Нет')}
+
+📍 С сайта ИВДоставка"""
+    
+    try:
+        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        payload = {
+            'chat_id': chat_id,
+            'text': telegram_message,
+            'parse_mode': 'HTML'
+        }
+        
+        response = requests.post(url, json=payload)
+        
+        if response.status_code == 200:
+            print(f"Telegram notification sent successfully")
+        else:
+            print(f"Failed to send Telegram notification: {response.text}")
+    except Exception as e:
+        print(f"Error sending Telegram notification: {e}")
+    
+    smtp_host = os.environ.get('SMTP_HOST')
+    smtp_port = int(os.environ.get('SMTP_PORT', '465'))
+    smtp_user = os.environ.get('SMTP_USER')
+    smtp_password = os.environ.get('SMTP_PASSWORD')
+    recipient_email = os.environ.get('RECIPIENT_EMAIL')
+    
+    if not all([smtp_host, smtp_user, smtp_password, recipient_email]):
+        print("Email settings not configured, skipping email notification")
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            'body': json.dumps({'success': True, 'message': 'Request received'}),
+            'isBase64Encoded': False
+        }
     
     email_body = f"""
     <html>
