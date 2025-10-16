@@ -1,5 +1,8 @@
-import { Card, CardContent } from '@/components/ui/card';
+import { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import QuoteRequestDialog from '@/components/QuoteRequestDialog';
 
 const advantages = [
   {
@@ -35,6 +38,8 @@ const advantages = [
 ];
 
 export default function AdvantagesSection() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <section id="advantages" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -59,8 +64,38 @@ export default function AdvantagesSection() {
               </CardContent>
             </Card>
           ))}
+          
+          <Card className="hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-xl text-center">Индивидуальный расчёт</CardTitle>
+              <CardDescription className="text-center">Получите точную стоимость доставки</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary mt-0.5" />
+                  <div className="text-sm">Персональные условия</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary mt-0.5" />
+                  <div className="text-sm">Расчёт за 15 минут</div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary mt-0.5" />
+                  <div className="text-sm">Без переплат</div>
+                </div>
+              </div>
+
+              <Button onClick={() => setIsDialogOpen(true)} className="w-full font-semibold">
+                <Icon name="Calculator" size={16} className="mr-2" />
+                Запросить расчёт
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
+
+      <QuoteRequestDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
     </section>
   );
 }
