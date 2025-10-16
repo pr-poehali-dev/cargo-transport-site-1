@@ -39,7 +39,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="tel:+79010370963" className="hidden sm:block">
+            <a href="tel:+79010370963" className="block">
               <Button variant="secondary" className="font-semibold">
                 <Icon name="Phone" size={18} className="mr-2" />
                 <span className="hidden lg:inline">+7 (901) 037-09-63</span>
