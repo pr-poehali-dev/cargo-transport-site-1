@@ -28,7 +28,7 @@ export default function HeroSection() {
 
     const basePrice = 500;
     const pricePerKm = 25;
-    const pricePerKg = 15;
+    const pricePerKg = 3;
     
     const total = basePrice + (distance * pricePerKm) + (weight * pricePerKg);
     setCalculatedPrice(Math.round(total));
