@@ -53,19 +53,20 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
-            <a href="tel:+79010370963" className="sm:hidden">
-              <Button variant="secondary" size="icon" className="shadow-lg">
-                <Icon name="Phone" size={22} />
-              </Button>
-            </a>
-
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="sm:hidden border-white text-white hover:bg-white/10">
-                  <Icon name="Menu" size={24} />
+            <div className="flex items-center gap-2 sm:hidden">
+              <a href="tel:+79010370963">
+                <Button variant="secondary" size="icon" className="shadow-lg bg-green-500 hover:bg-green-600">
+                  <Icon name="Phone" size={22} className="text-white" />
                 </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-primary">
+              </a>
+
+              <Sheet open={open} onOpenChange={setOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon" className="border-white text-white hover:bg-white/10">
+                    <Icon name="Menu" size={24} />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] bg-primary">
                 <div className="flex flex-col gap-6 mt-8">
                   {menuItems.map((item) => (
                     <a
@@ -89,8 +90,8 @@ export default function Header() {
                   </Button>
                 </div>
               </SheetContent>
-            </Sheet>
-          </div>
+              </Sheet>
+            </div>
         </div>
       </nav>
       
