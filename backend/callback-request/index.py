@@ -6,6 +6,7 @@ import urllib.request
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
+import requests
 
 def send_email_notification(name: str, phone: str) -> None:
     smtp_host = os.environ.get('SMTP_HOST')
@@ -43,6 +44,30 @@ def send_email_notification(name: str, phone: str) -> None:
         server.send_message(msg)
     
     print(f"Email notification sent to {notification_email}")
+
+def send_telegram_notification(name: str, phone: str) -> None:
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    
+    if not bot_token or not chat_id:
+        print("Telegram settings not configured, skipping Telegram notification")
+        return
+    
+    message = f"🔔 <b>Новая заявка на обратный звонок</b>\n\n👤 <b>Имя:</b> {name}\n📱 <b>Телефон:</b> {phone}\n\n📍 С сайта ИВДоставка"
+    
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    payload = {
+        'chat_id': chat_id,
+        'text': message,
+        'parse_mode': 'HTML'
+    }
+    
+    response = requests.post(url, json=payload)
+    
+    if response.status_code == 200:
+        print(f"Telegram notification sent to chat_id: {chat_id}")
+    else:
+        print(f"Failed to send Telegram notification: {response.text}")
 
 def send_whatsapp_notification(name: str, phone: str) -> None:
     whatsapp_phone = os.environ.get('WHATSAPP_PHONE', '79010370963')
@@ -101,6 +126,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         }
     
     print(f"Callback request received: {name}, {phone}, type: {request_type}")
+    
+    try:
+        send_telegram_notification(name, phone)
+    except Exception as e:
+        print(f"Failed to send Telegram notification: {e}")
     
     try:
         send_email_notification(name, phone)
