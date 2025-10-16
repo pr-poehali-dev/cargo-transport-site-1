@@ -33,7 +33,7 @@ export default function ReviewsSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review, idx) => (
-            <Card key={idx} className="hover:shadow-lg transition-shadow">
+            <Card key={idx} className={`hover:shadow-lg transition-shadow animate-fade-in-up animation-delay-${idx * 100}`}>
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-xl">

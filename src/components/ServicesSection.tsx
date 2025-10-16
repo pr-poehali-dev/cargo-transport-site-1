@@ -11,7 +11,7 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary animate-fade-in-up animation-delay-0">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
                 <Icon name="Truck" size={32} className="text-white" />
@@ -21,7 +21,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary animate-fade-in-up animation-delay-100">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
                 <Icon name="MapPin" size={32} className="text-white" />
@@ -31,7 +31,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary animate-fade-in-up animation-delay-200">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
                 <Icon name="Package" size={32} className="text-white" />
@@ -41,7 +41,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent animate-fade-in-up animation-delay-300">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4">
                 <Icon name="PackageOpen" size={32} className="text-white" />
@@ -51,7 +51,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent animate-fade-in-up animation-delay-400">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4">
                 <Icon name="Snowflake" size={32} className="text-white" />
@@ -61,7 +61,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-primary animate-fade-in-up animation-delay-500">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
                 <Icon name="Globe" size={32} className="text-white" />
@@ -71,7 +71,7 @@ export default function ServicesSection() {
             </CardHeader>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent">
+          <Card className="hover:shadow-xl transition-shadow border-t-4 border-t-accent animate-fade-in-up animation-delay-600">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4">
                 <Icon name="ShoppingCart" size={32} className="text-white" />
