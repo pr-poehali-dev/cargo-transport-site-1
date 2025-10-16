@@ -46,12 +46,8 @@ def send_email_notification(name: str, phone: str) -> None:
     print(f"Email notification sent to {notification_email}")
 
 def send_telegram_notification(name: str, phone: str) -> None:
-    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
-    
-    if not bot_token or not chat_id:
-        print("Telegram settings not configured, skipping Telegram notification")
-        return
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '7878655833:AAHke8YRZCr0m8iPijx9hITx4uUfYTmCSao')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '7757580483')
     
     message = f"🔔 <b>Новая заявка на обратный звонок</b>\n\n👤 <b>Имя:</b> {name}\n📱 <b>Телефон:</b> {phone}\n\n📍 С сайта ИВДоставка"
     
