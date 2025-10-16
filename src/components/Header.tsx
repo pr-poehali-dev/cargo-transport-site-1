@@ -39,10 +39,12 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button onClick={() => setIsCallbackOpen(true)} variant="secondary" className="font-semibold hidden md:flex">
-              <Icon name="Phone" size={18} className="mr-2" />
-              <span className="hidden xl:inline">+7 (901) 037-09-63</span>
-              <span className="xl:hidden">Позвонить</span>
+            <Button asChild variant="secondary" className="font-semibold hidden md:flex">
+              <a href="tel:+79010370963">
+                <Icon name="Phone" size={18} className="mr-2" />
+                <span className="hidden xl:inline">+7 (901) 037-09-63</span>
+                <span className="xl:hidden">Позвонить</span>
+              </a>
             </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
