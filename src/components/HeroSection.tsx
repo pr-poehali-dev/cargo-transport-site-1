@@ -8,8 +8,10 @@ export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <section id="home" className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 text-white py-20">
-      <div className="container mx-auto px-4">
+    <section id="home" className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 text-white py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/e11ae316-4ca9-428c-b69f-6dd56d560283/files/06711f6e-f2fe-456e-bef9-11a939b3a576.jpg)' }}></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
