@@ -53,8 +53,28 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
-            <a href="tel:+79010370963" className="sm:hidden">
-              <button className="h-10 w-10 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center shadow-lg">
+            <a 
+              href="tel:+79010370963" 
+              style={{
+                display: window.innerWidth < 640 ? 'block' : 'none'
+              }}
+            >
+              <button 
+                style={{
+                  height: '40px',
+                  width: '40px',
+                  borderRadius: '50%',
+                  backgroundColor: '#16a34a',
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: 'none',
+                  fontSize: '20px',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                  cursor: 'pointer'
+                }}
+              >
                 📞
               </button>
             </a>
