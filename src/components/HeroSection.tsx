@@ -9,8 +9,8 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/80 text-white py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/e11ae316-4ca9-428c-b69f-6dd56d560283/files/06711f6e-f2fe-456e-bef9-11a939b3a576.jpg)' }}></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/60 to-primary/70"></div>
+      <div className="absolute inset-0 bg-cover bg-center opacity-60" style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/e11ae316-4ca9-428c-b69f-6dd56d560283/files/06711f6e-f2fe-456e-bef9-11a939b3a576.jpg)' }}></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
