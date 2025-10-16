@@ -47,16 +47,16 @@ export default function Header() {
               </Button>
             </a>
             
-            <Button onClick={() => setIsCallbackOpen(true)} className="font-semibold hidden sm:flex bg-white text-primary hover:bg-white/90 shadow-lg">
-              <Icon name="PhoneCall" size={18} className="mr-2" />
+            <Button onClick={() => setIsCallbackOpen(true)} className="font-semibold hidden sm:flex bg-white text-primary hover:bg-white/90 shadow-lg h-12 px-6 text-base">
+              <Icon name="PhoneCall" size={20} className="mr-2" />
               <span className="hidden md:inline">Заказать звонок</span>
               <span className="md:hidden">Заявка</span>
             </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button size="icon" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                  <Icon name="Menu" size={24} />
+                <Button className="bg-white text-primary hover:bg-white/90 shadow-lg h-12 w-12">
+                  <Icon name="Menu" size={28} />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-primary">
