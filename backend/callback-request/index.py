@@ -12,9 +12,9 @@ def send_email_notification(name: str, phone: str) -> None:
     smtp_port = int(os.environ.get('SMTP_PORT', '587'))
     smtp_user = os.environ.get('SMTP_USER')
     smtp_password = os.environ.get('SMTP_PASSWORD')
-    notification_email = os.environ.get('NOTIFICATION_EMAIL')
+    notification_email = os.environ.get('NOTIFICATION_EMAIL', 'koroleva26.07@mail.ru')
     
-    if not all([smtp_host, smtp_user, smtp_password, notification_email]):
+    if not all([smtp_host, smtp_user, smtp_password]):
         print("Email settings not configured, skipping email notification")
         return
     
@@ -45,17 +45,13 @@ def send_email_notification(name: str, phone: str) -> None:
     print(f"Email notification sent to {notification_email}")
 
 def send_whatsapp_notification(name: str, phone: str) -> None:
-    whatsapp_phone = os.environ.get('WHATSAPP_PHONE')
-    
-    if not whatsapp_phone:
-        print("WhatsApp phone not configured, skipping WhatsApp notification")
-        return
+    whatsapp_phone = os.environ.get('WHATSAPP_PHONE', '79010370963')
     
     message = f"🔔 Новая заявка на обратный звонок\n\nИмя: {name}\nТелефон: {phone}\n\nС сайта ИВДоставка"
     whatsapp_url = f"https://api.whatsapp.com/send?phone={whatsapp_phone}&text={urllib.parse.quote(message)}"
     
-    print(f"WhatsApp notification prepared: {whatsapp_url}")
-    print(f"Manual action required: Open this link to send WhatsApp message")
+    print(f"WhatsApp notification URL: {whatsapp_url}")
+    print(f"Открыть ссылку для отправки в WhatsApp: {whatsapp_url}")
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
