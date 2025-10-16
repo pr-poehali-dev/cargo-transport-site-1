@@ -54,14 +54,14 @@ export default function Header() {
             </Button>
 
             <a href="tel:+79010370963" className="sm:hidden">
-              <Button variant="secondary" size="icon">
-                <Icon name="Phone" size={20} />
+              <Button variant="secondary" size="icon" className="shadow-lg">
+                <Icon name="Phone" size={22} />
               </Button>
             </a>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button variant="secondary" size="icon" className="sm:hidden">
+                <Button variant="outline" size="icon" className="sm:hidden border-white text-white hover:bg-white/10">
                   <Icon name="Menu" size={24} />
                 </Button>
               </SheetTrigger>
