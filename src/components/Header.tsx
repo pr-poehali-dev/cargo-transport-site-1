@@ -39,7 +39,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="tel:+79010370963">
+            <a href="tel:+79010370963" className="hidden sm:block">
               <Button variant="secondary" className="font-semibold">
                 <Icon name="Phone" size={18} className="mr-2" />
                 <span className="hidden lg:inline">+7 (901) 037-09-63</span>
@@ -53,10 +53,10 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
-            <a href="tel:+79010370963" className="sm:hidden">
-              <Button size="icon" className="bg-green-600 hover:bg-green-700 text-white">
-                <Icon name="Phone" size={24} />
-              </Button>
+            <a href="tel:+79010370963" className="block sm:hidden" style={{display: 'block'}}>
+              <button className="h-10 w-10 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center shadow-lg">
+                📞
+              </button>
             </a>
 
             <Sheet open={open} onOpenChange={setOpen}>
