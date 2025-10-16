@@ -53,7 +53,7 @@ export default function Header() {
               <span className="md:hidden">Заявка</span>
             </Button>
 
-            <a href="tel:+79010370963" className="block sm:hidden" style={{display: 'block'}}>
+            <a href="tel:+79010370963" className="sm:hidden">
               <button className="h-10 w-10 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center shadow-lg">
                 📞
               </button>
