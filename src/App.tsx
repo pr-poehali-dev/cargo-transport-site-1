@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PhoneButton from "@/components/PhoneButton";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +16,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <WhatsAppButton />
-      <PhoneButton />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
