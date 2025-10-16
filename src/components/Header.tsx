@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import CallbackDialog from '@/components/CallbackDialog';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false);
 
   const menuItems = [
     { href: '#home', label: 'Главная' },
@@ -37,7 +39,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="secondary" className="font-semibold hidden md:flex">
+            <Button onClick={() => setIsCallbackOpen(true)} variant="secondary" className="font-semibold hidden md:flex">
               <Icon name="Phone" size={18} className="mr-2" />
               <span className="hidden xl:inline">+7 (901) 037-09-63</span>
               <span className="xl:hidden">Позвонить</span>
@@ -61,16 +63,18 @@ export default function Header() {
                       {item.label}
                     </a>
                   ))}
-                  <a href="tel:+79010370963" className="text-white hover:text-accent transition-colors font-semibold text-lg">
-                    <Icon name="Phone" size={20} className="inline mr-2" />
-                    +7 (901) 037-09-63
-                  </a>
+                  <Button onClick={() => { setIsCallbackOpen(true); setOpen(false); }} variant="secondary" className="w-full justify-start text-lg">
+                    <Icon name="Phone" size={20} className="mr-2" />
+                    Заказать звонок
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
           </div>
         </div>
       </nav>
+      
+      <CallbackDialog open={isCallbackOpen} onOpenChange={setIsCallbackOpen} />
     </header>
   );
 }
